@@ -136,6 +136,8 @@ int main(){
     
     int width;               //width of image
     int height;              //height of image
+    int Row;
+    int Col; 
     
     rgb **imgArray;         //Pointer var for our 2D array          
     
@@ -143,11 +145,21 @@ int main(){
                             //We need this so we can make the array the right 
                             //size.
     
+    
     imgArray = new rgb*[height];    //This array points to every row
     
     for(int i=0;i<height;i++){
-        imgArray[i] = new rgb[width]; //Now allocate each row of rgb's
+        imgArray[i] = new rgb[width]; //Allocate each row of rgb's
     }
+    
+  
+    
+    imgArray = new rgb*[width];    //This array points to every column
+    
+    for(int i=0;i<width;i++){
+      imgArray[i] = new rgb[height]; // Allocate each column of rgb's
+    }
+    
     
     
      //Read the color data in from our txt file
@@ -171,4 +183,4 @@ int main(){
     
     
   return 0;
-}
+}  
