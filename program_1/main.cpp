@@ -1,11 +1,11 @@
 /**
-* @ProgramName: Program-1
-* @Author: Your Name 
-* @Description: 
+*Program-1: Image Manipulation
+*Gracie Latham 
+* Description:
 *     This program reads in images stored as rgb values in a space delimited file format.
-* @Course: 1063 Data Structures
-* @Semester: Spring 2017
-* @Date: DD MM YYYY
+* Course: 1063 Data Structures
+* Semester: Spring 2017
+* Date:06 02 2017
 */
 
 #include<iostream>
@@ -21,14 +21,15 @@ struct rgb{
 };
 
 /**
-* @FunctionName: grayScale
-* @Description: 
-*     Loops through a 2D array and turns every RGB value into its grayscale equivalent.
-* @Params:
+* FunctionName: flipVert
+* Description: 
+*     Loops through a 2D array and flips the image Vertically
+* Params:
 *    rgb** image - 2D array holding rgb values
 *    int width - width of image
 *    int height - height of image
-* @Returns:
+*    int Row[] - Array for rows of image
+* Returns:
 *    void
 */
 
@@ -39,13 +40,14 @@ void flipVert(rgb** image,int width,int height,int Row[]){
 }
 
 /**
-* @FunctionName: grayScale
+* @FunctionName: flipHorz
 * @Description: 
-*     Loops through a 2D array and turns every RGB value into its grayscale equivalent.
+*     Loops through a 2D array and flips the image Horizontally
 * @Params:
 *    rgb** image - 2D array holding rgb values
 *    int width - width of image
 *    int height - height of image
+*    int Col[] - Array for columns of image
 * @Returns:
 *    void
 */
@@ -74,13 +76,14 @@ void grayScale(rgb** image,int width,int height){
 }
 
 /**
-* @FunctionName: grayScale
+* @FunctionName: changeColor
 * @Description: 
-*     Loops through a 2D array and turns every RGB value into its grayscale equivalent.
+*     Loops through a 2D array and assigns newColor to each location of array
 * @Params:
 *    rgb** image - 2D array holding rgb values
 *    int width - width of image
 *    int height - height of image
+*    rgb newColor - assigns new colors for array
 * @Returns:
 *    void
 */
@@ -92,13 +95,14 @@ void changeColor(rgb** image,int width, int height, rgb newColor){
 }
 
 /**
-* @FunctionName: grayScale
+* @FunctionName: readImage
 * @Description: 
-*     Loops through a 2D array and turns every RGB value into its grayscale equivalent.
+*     Loops through a 2D array and reads the values of the array
 * @Params:
 *    rgb** image - 2D array holding rgb values
-*    int width - width of image
-*    int height - height of image
+*    int &width - width of image
+*    int &height - height of image
+*    ofstream &ofile - opens and uses output file 
 * @Returns:
 *    void
 */
@@ -108,13 +112,14 @@ void readImage(rgb** image,int &width,int &height,ofstream &ofile){
 }
 
 /**
-* @FunctionName: grayScale
+* @FunctionName: saveImage 
 * @Description: 
-*     Loops through a 2D array and turns every RGB value into its grayscale equivalent.
+*     Loops through a 2D array and saves the new image
 * @Params:
 *    rgb** image - 2D array holding rgb values
 *    int width - width of image
 *    int height - height of image
+*    ofstream &ofile - opens and uses output file 
 * @Returns:
 *    void
 */
