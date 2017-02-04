@@ -67,65 +67,40 @@ void flipHorz(rgb** image,int width,int height,int Col[]){
 *    rgb** image - 2D array holding rgb values
 *    int width - width of image
 *    int height - height of image
+*    int gray - the new color that each of the rgb values change to
 * @Returns:
 *    void
 */
 
-void grayScale(rgb** image,int width,int height){
- 
-}
+void grayScale(rgb** image, int width, int height, int gray){
+    for(int i = 0; i <= 255; i++){
+      gray = (image[i]->r + image[i]->g + image[i]->b) / 3;
+      image[i]->r = gray;
+      image[i]->g = gray;
+      image[i]->b = gray;
+  } 
 
 /**
 * @FunctionName: changeColor
 * @Description: 
-*     Loops through a 2D array and assigns newColor to each location of array
+*     Loops through a 2D array and turns every RGB value into the new color.
 * @Params:
 *    rgb** image - 2D array holding rgb values
 *    int width - width of image
 *    int height - height of image
-*    rgb newColor - assigns new colors for array
+*    rgb newColor - a struct holding the new color for the image.
 * @Returns:
 *    void
 */
 
-void changeColor(rgb** image,int width, int height, rgb newColor){
+void changeColor(rgb** image, int width, int height, rgb newColor){
    // loop through image
    // assign newColor to each location in array
-  
-}
-
-/**
-* @FunctionName: readImage
-* @Description: 
-*     Loops through a 2D array and reads the values of the array
-* @Params:
-*    rgb** image - 2D array holding rgb values
-*    int &width - width of image
-*    int &height - height of image
-*    ofstream &ofile - opens and uses output file 
-* @Returns:
-*    void
-*/
-
-void readImage(rgb** image,int &width,int &height,ofstream &ofile){
-    
-}
-
-/**
-* @FunctionName: saveImage 
-* @Description: 
-*     Loops through a 2D array and saves the new image
-* @Params:
-*    rgb** image - 2D array holding rgb values
-*    int width - width of image
-*    int height - height of image
-*    ofstream &ofile - opens and uses output file 
-* @Returns:
-*    void
-*/
-
-void saveImage(rgb** image,int width,int height,ofstream &ofile){
-    
+    for(int i = 0; i <= 255; i++){
+      image[i]->r = 94;
+      image[i]->g = 137;
+      image[i]->b = 255;
+  }
 }
 
 int main(){
@@ -146,21 +121,21 @@ int main(){
                             //size.
     
     
-    imgArray = new rgb*[height];    //This array points to every row
+    imgArray = new rgb*[height];      //This array points to every row
     
     for(int i=0;i<height;i++){
         imgArray[i] = new rgb[width]; //Allocate each row of rgb's
     }
     
-  
+    image.flipVert(255, 255, Row);    //Function for flipping Vertically
     
-    imgArray = new rgb*[width];    //This array points to every column
+    imgArray = new rgb*[width];       //This array points to every column
     
     for(int i=0;i<width;i++){
-      imgArray[i] = new rgb[height]; // Allocate each column of rgb's
+      imgArray[i] = new rgb[height];  // Allocate each column of rgb's
     }
     
-    
+    image.flipHorz(255, 255, Col);    // Function for flipping Horizontally
     
      //Read the color data in from our txt file
     for(int i=0;i<height;i++){
@@ -170,7 +145,9 @@ int main(){
     }
     
     //We could make any changes we want to the color image here
+     image.grayScale(255, 255);
      
+     image.newColor(255, 255);
     
     //Write out our color data to a new file
     ofile<<width<<" "<<height<<endl;
