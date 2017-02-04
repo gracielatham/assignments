@@ -126,7 +126,7 @@ int main(){
         imgArray[i] = new rgb[width]; // Allocate each row of rgb's
     }
     
-    image.flipVert(255, 255, Row);    // Function for flipping Vertically
+    imgArray->flipVert(255, 255, Row);    // Function for flipping Vertically
     
     imgArray = new rgb*[width];       // This array points to every column
     
@@ -134,7 +134,7 @@ int main(){
       imgArray[i] = new rgb[height];  // Allocate each column of rgb's
     }
     
-    image.flipHorz(255, 255, Col);    // Function for flipping Horizontally
+    imgArray->flipHorz(255, 255, Col);    // Function for flipping Horizontally
     
      //Read the color data in from our txt file
     for(int i=0;i<height;i++){
@@ -144,9 +144,10 @@ int main(){
     }
     
     //We could make any changes we want to the color image here
-     image.grayScale(255, 255);       // GrayScaling the image
      
-     image.newColor(255, 255);        // Changing values of rgb in the image
+     imgArray->grayScale(255, 255);       // GrayScaling the image
+     
+     imgArray->newColor(255, 255);        // Changing values of rgb in the image
     
     //Write out our color data to a new file
     ofile<<width<<" "<<height<<endl;
