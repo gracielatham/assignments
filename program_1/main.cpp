@@ -56,8 +56,7 @@ void flipHorz(rgb** image,int width,int height,int Col[]){
     for (int i = 0; 0 <= i <= width/2; i++){
       Col[i] = width - 1 - i; 
     }
-    
-}
+ }
 
 /**
 * @FunctionName: grayScale
@@ -111,8 +110,8 @@ int main(){
     
     int width;               //width of image
     int height;              //height of image
-    int Row;
-    int Col; 
+    int Row;                 //row of image
+    int Col;                 //column of image
     
     rgb **imgArray;         //Pointer var for our 2D array          
     
