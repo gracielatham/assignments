@@ -92,13 +92,13 @@ void grayScale(rgb** image, int width, int height, int gray){
 *    void
 */
 
-void changeColor(rgb** image, int width, int height, rgb newColor){
+void changeColor(rgb** image, int width, int height, rgb** newColor){
    // loop through image
    // assign newColor to each location in array
     for(int i = 0; i <= 255; i++){
-      image[i]->r = 94;
-      image[i]->g = 137;
-      image[i]->b = 255;
+      newColor[i]->r = 94;
+      newColor[i]->g = 137;
+      newColor[i]->b = 255;
   }
 }
 
