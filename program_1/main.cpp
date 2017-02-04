@@ -120,15 +120,15 @@ int main(){
                             //size.
     
     
-    imgArray = new rgb*[height];      //This array points to every row
+    imgArray = new rgb*[height];      // This array points to every row
     
     for(int i=0;i<height;i++){
-        imgArray[i] = new rgb[width]; //Allocate each row of rgb's
+        imgArray[i] = new rgb[width]; // Allocate each row of rgb's
     }
     
-    image.flipVert(255, 255, Row);    //Function for flipping Vertically
+    image.flipVert(255, 255, Row);    // Function for flipping Vertically
     
-    imgArray = new rgb*[width];       //This array points to every column
+    imgArray = new rgb*[width];       // This array points to every column
     
     for(int i=0;i<width;i++){
       imgArray[i] = new rgb[height];  // Allocate each column of rgb's
@@ -144,9 +144,9 @@ int main(){
     }
     
     //We could make any changes we want to the color image here
-     image.grayScale(255, 255);
+     image.grayScale(255, 255);       // GrayScaling the image
      
-     image.newColor(255, 255);
+     image.newColor(255, 255);        // Changing values of rgb in the image
     
     //Write out our color data to a new file
     ofile<<width<<" "<<height<<endl;
