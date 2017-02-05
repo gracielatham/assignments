@@ -1,3 +1,13 @@
+/**
+* EndSert
+* Gracie Latham
+* Description: 
+*     This program reads in images stored as rgb values in a space delimited file format.
+* Course: 1063 Data Structures
+* Semester: Spring 2017
+* Date: 10 02 2017
+*/
+
 #include <iostream>
 
 struct Node{
@@ -16,6 +26,7 @@ public:
       Head = NULL;
     }
     
+    
     void FrontSert(int x){
       Node *Temp = new Node;
       Temp->Data = x;
@@ -28,6 +39,8 @@ public:
       Head = Temp;
       
     }
+       
+       
        
     void PrintList(){
       if(!Head){
