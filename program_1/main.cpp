@@ -101,7 +101,6 @@ void changeColor(rgb** image, int width, int height, rgb** newColor){
       newColor[i]->b = 255;
   }
 }
-
 int main(){
     ifstream ifile;          //Input / output files
     ofstream ofile;
@@ -110,8 +109,8 @@ int main(){
     
     int width;               //width of image
     int height;              //height of image
-    int Row;                 //row of image
-    int Col;                 //column of image
+    int Row;
+    int Col; 
     
     rgb **imgArray;         //Pointer var for our 2D array          
     
@@ -120,21 +119,24 @@ int main(){
                             //size.
     
     
-    imgArray = new rgb*[height];      // This array points to every row
+    imgArray = new rgb*[height];    //This array points to every row
     
     for(int i=0;i<height;i++){
-        imgArray[i] = new rgb[width]; // Allocate each row of rgb's
+        imgArray[i] = new rgb[width]; //Allocate each row of rgb's
     }
     
-    imgArray->flipVert(255, 255, Row);    // Function for flipping Vertically
     
-    imgArray = new rgb*[width];       // This array points to every column
+    flipVert(rgb[height], width, height, Row); 
+    
+    
+    imgArray = new rgb*[width];      //This array points to every column
     
     for(int i=0;i<width;i++){
-      imgArray[i] = new rgb[height];  // Allocate each column of rgb's
+      imgArray[i] = new rgb[height];     // Allocate each column of rgb's
+     
     }
     
-    imgArray->flipHorz(255, 255, Col);    // Function for flipping Horizontally
+    flipHorz(rgb[width], width, height, Col);  
     
      //Read the color data in from our txt file
     for(int i=0;i<height;i++){
@@ -144,10 +146,19 @@ int main(){
     }
     
     //We could make any changes we want to the color image here
+   
+     grayScale(rgb, width, height);
      
-     imgArray->grayScale(255, 255);       // GrayScaling the image
-     
-     imgArray->newColor(255, 255);        // Changing values of rgb in the image
+     //Write out our color data to a new file
+     ofile<<width<<" "<<height<<endl;
+    for(int i=0;i<height;i++){
+        for(int j=0;j<width;j++){
+            ofile<<imgArray[i][j].r<<" "<<imgArray[i][j].g<<" "<<imgArray[i][j].b<<" ";
+        }
+        ofile<<endl;
+    }
+    
+    changeColor(rgb, width, height, rgb);
     
     //Write out our color data to a new file
     ofile<<width<<" "<<height<<endl;
@@ -160,4 +171,4 @@ int main(){
     
     
   return 0;
-}  
+} 
