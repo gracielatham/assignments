@@ -1,6 +1,6 @@
 /**
-*Program-1: Image Manipulation
-*Gracie Latham 
+* Program-1: Image Manipulation
+* Gracie Latham 
 * Description:
 *     This program reads in images stored as rgb values in a space delimited file format.
 * Course: 1063 Data Structures
@@ -40,15 +40,15 @@ void flipVert(rgb** image,int width,int height,int Row[]){
 }
 
 /**
-* @FunctionName: flipHorz
-* @Description: 
+* FunctionName: flipHorz
+* Description: 
 *     Loops through a 2D array and flips the image Horizontally
-* @Params:
+* Params:
 *    rgb** image - 2D array holding rgb values
 *    int width - width of image
 *    int height - height of image
 *    int Col[] - Array for columns of image
-* @Returns:
+* Returns:
 *    void
 */
 
@@ -59,15 +59,15 @@ void flipHorz(rgb** image,int width,int height,int Col[]){
  }
 
 /**
-* @FunctionName: grayScale
-* @Description: 
+* FunctionName: grayScale
+* Description: 
 *     Loops through a 2D array and turns every RGB value into its grayscale equivalent.
-* @Params:
+* Params:
 *    rgb** image - 2D array holding rgb values
 *    int width - width of image
 *    int height - height of image
 *    int gray - the new color that each of the rgb values change to
-* @Returns:
+* Returns:
 *    void
 */
 
@@ -80,21 +80,19 @@ void grayScale(rgb** image, int width, int height, int gray){
   } 
 
 /**
-* @FunctionName: changeColor
-* @Description: 
+* FunctionName: changeColor
+* Description: 
 *     Loops through a 2D array and turns every RGB value into the new color.
-* @Params:
+* Params:
 *    rgb** image - 2D array holding rgb values
 *    int width - width of image
 *    int height - height of image
 *    rgb newColor - a struct holding the new color for the image.
-* @Returns:
+* Returns:
 *    void
 */
 
 void changeColor(rgb** image, int width, int height, rgb** newColor){
-   // loop through image
-   // assign newColor to each location in array
     for(int i = 0; i <= 255; i++){
       newColor[i]->r = 94;
       newColor[i]->g = 137;
@@ -109,8 +107,8 @@ int main(){
     
     int width;               //width of image
     int height;              //height of image
-    int Row;
-    int Col; 
+    int Row;                 //Row of image
+    int Col;                 //Column of image
     
     rgb **imgArray;         //Pointer var for our 2D array          
     
@@ -126,7 +124,7 @@ int main(){
     }
     
     
-    flipVert(rgb[height], width, height, Row); 
+    flipVert(rgb[height], width, height, Row);  //flipVert Function
     
     
     imgArray = new rgb*[width];      //This array points to every column
@@ -136,7 +134,7 @@ int main(){
      
     }
     
-    flipHorz(rgb[width], width, height, Col);  
+    flipHorz(rgb[width], width, height, Col);  //flipHorz Function
     
      //Read the color data in from our txt file
     for(int i=0;i<height;i++){
@@ -144,10 +142,8 @@ int main(){
             ifile>>imgArray[i][j].r>>imgArray[i][j].g>>imgArray[i][j].b;            
         }
     }
-    
-    //We could make any changes we want to the color image here
    
-     grayScale(rgb, width, height);
+     grayScale(rgb, width, height);     //Gray scale the image
      
      //Write out our color data to a new file
      ofile<<width<<" "<<height<<endl;
@@ -158,7 +154,7 @@ int main(){
         ofile<<endl;
     }
     
-    changeColor(rgb, width, height, rgb);
+    changeColor(rgb, width, height, rgb);    //Change the color of the image
     
     //Write out our color data to a new file
     ofile<<width<<" "<<height<<endl;
