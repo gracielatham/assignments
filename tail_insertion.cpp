@@ -1,5 +1,5 @@
 /**
-* EndSert
+* Homework 1 - EndSert Method
 * Gracie Latham
 * Description: 
 *     This program reads in images stored as rgb values in a space delimited file format.
@@ -26,21 +26,31 @@ public:
       Head = NULL;
     }
     
-    
     void FrontSert(int x){
       Node *Temp = new Node;
       Temp->Data = x;
       Temp->Next = NULL;
       
       if(Head){
-        Temp->Next = Head;
+        Temp -> Next = Head;
       }
 
       Head = Temp;
       
     }
-       
-       
+    
+    void EndSert(int x){
+      Node *Temp = new Node;
+      Temp->Data = x;
+      Temp->Next = NULL;
+      
+      if(Tail){
+        Temp -> Next = Tail;
+      }
+      
+      Tail = Temp; 
+   
+    }
        
     void PrintList(){
       if(!Head){
@@ -61,9 +71,15 @@ public:
 int main() {
     srand(97097807);
     List L;
+    
     for(int i=0;i<10;i++){
       L.FrontSert(rand()%100);
     }
+    
+    for(int i=0;i<10;i++){
+      L.EndSert(rand()%100);
+    }
+    
     L.PrintList();
     
     
