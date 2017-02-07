@@ -26,6 +26,15 @@ public:
       Head = NULL;
     }
     
+  /**
+* FunctionName: FrontSert
+* Description: 
+*     Inserts a value to the front of the list 
+* Params:
+*    int x - Values inputed into the front of list 
+* Returns:
+*    void
+*/
     void FrontSert(int x){
       Node *Temp = new Node;
       Temp->Data = x;
@@ -38,7 +47,16 @@ public:
       Head = Temp;
       
     }
-    
+   
+  /**
+* FunctionName: EndSert
+* Description: 
+*     Inserts values into end of the list 
+* Params:
+*     int x - Values inputed into the end of list
+* Returns:
+*    void
+*/
     void EndSert(int x){
       Node *Temp = new Node;
       Temp->Data = x;
@@ -51,7 +69,15 @@ public:
       Tail = Temp; 
    
     }
-       
+  /**
+* FunctionName: PrintList
+* Description: 
+*     Prints list of values into output
+* Params:
+*     None
+* Returns:
+*    void
+*/  
     void PrintList(){
       if(!Head){
         cout<<"Empty"<<endl;
