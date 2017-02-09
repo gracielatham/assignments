@@ -24,6 +24,7 @@ private:
 public:
     List(){
       Head = NULL;
+      Tail = NULL; 
     }
     
   /**
@@ -31,7 +32,7 @@ public:
 * Description: 
 *     Inserts a value to the front of the list 
 * Params:
-*    int x - Values inputed into the front of list 
+*    int x - Represents values inputed into the front of list 
 * Returns:
 *    void
 */
@@ -41,7 +42,7 @@ public:
       Temp->Next = NULL;
       
       if(Head){
-        Temp -> Next = Head;
+        Temp->Next = Head;
       }
 
       Head = Temp;
@@ -53,22 +54,31 @@ public:
 * Description: 
 *     Inserts values into end of the list 
 * Params:
-*     int x - Values inputed into the end of list
+*     int x - Represents values inputed into the end of list
 * Returns:
 *    void
 */
-    void EndSert(int x){
+void EndSert(int x){
       Node *Temp = new Node;
       Temp->Data = x;
       Temp->Next = NULL;
       
-      if(Tail){
-        Temp -> Next = Tail;
+      if(!Head){
+       Head = Temp; 
+      }else{
+          Node *Curr = Head;
+          Node *Prev = Head;
+          
+          Prev = Curr;
+          Curr = Curr->Next;
+          
+          Curr->Next = Temp; 
+          Temp->Next = Tail; 
       }
-      
-      Tail = Temp; 
+        
+       Tail = Temp;
    
-    }
+     }
   /**
 * FunctionName: PrintList
 * Description: 
