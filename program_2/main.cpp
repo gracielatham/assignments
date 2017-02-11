@@ -7,6 +7,17 @@
 * Semester: Spring 2017
 * Date: 15 02 2017
 */
+#include <iostream>
+#include<fstream>
+#include<math.h>
+
+using namespace std;
+
+struct rgb{
+    int r;
+    int g;
+    int b;
+};
 
 class ImageManip{
 private:
@@ -15,10 +26,8 @@ private:
     int height;
     ifstream infile;
     ofstream ofile;
-
-public:
-    ImageManip(){
-    }
+    string ifile_name;
+    string ofile_name;
 
     void readFile(){
     }
@@ -26,21 +35,29 @@ public:
     void writeFile(){
     }
 
-    void grayScale(){
-         // your code
+public:
+    ImageManip(){
     }
 
-    void flipVert(){
-        // your code
+    void flipVert(string ifile_name,string ofile_name){
+
     }
 
-    void flipHorz(){
-        // your code
+    void flipHorz(string ifile_name,string ofile_name){
+       
     }
 
-    void grayScale(){
-        // your code
+    void grayScale(string ifile_name,string ofile_name){
+       
     }
     ~ImagerManip(){
     }
 }
+
+int main() {
+    ifile.open("bot.txt");
+    ofile.open("bot2.txt");  
+    
+
+  return 0;
+    
