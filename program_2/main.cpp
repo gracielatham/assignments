@@ -7,6 +7,7 @@
 * Semester: Spring 2017
 * Date: 15 02 2017
 */
+
 #include <iostream>
 #include<fstream>
 #include<math.h>
@@ -29,7 +30,7 @@ private:
     string ifile_name;
     string ofile_name;
 
-    /**
+/**
 * @FunctionName: readFile
 * @Description: 
 *     Reads in the input file
