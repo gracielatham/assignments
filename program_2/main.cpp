@@ -35,26 +35,38 @@ private:
 * @Description: 
 *     Reads in the input file
 * @Params:
-*    none
+*    rgb **imgArray
 * @Returns:
 *    void
 */
     
-    void readFile(){
+   void readFile(rgb **imgArray){
+      for(int i=0;i<height;i++){
+        for(int j=0;j<width;j++){
+            ifile>>imgArray[i][j].r>>imgArray[i][j].g>>imgArray[i][j].b;            
+        }
     }
+  }
 
 /**
 * @FunctionName: writeFile
 * @Description: 
 *     writes new data into file
 * @Params:
-*    none
+*    rgb **imgArray
 * @Returns:
 *    void
 */
     
-    void writeFile(){
+     void writeFile(rgb **imgArray){
+    ofile<<width<<" "<<height<<endl;
+    for(int i=0;i<height;i++){
+        for(int j=0;j<width;j++){
+            ofile<<imgArray[i][j].r<<" "<<imgArray[i][j].g<<" "<<imgArray[i][j].b<<" ";
+        }
+        ofile<<endl;
     }
+  }
 
 public:
     ImageManip(){
@@ -67,13 +79,16 @@ public:
 * @Params:
 *   string ifile_name - takes data from infile
 *   string ofile_name - prints data to outfile
+*   Row[] - row of the image
 * @Returns:
 *    void
 */
     
-    void flipVert(string ifile_name,string ofile_name){
-
+    void flipVert(string ifile_name,string ofile_name, int Row[]){
+      for (int i = 0; 0 <= i <= height/2; i++){
+        Row[i] = height - 1 - i; 
     }
+  }
 
 /**
 * @FunctionName: flipHorz
@@ -82,13 +97,16 @@ public:
 * @Params:
 *  string ifile_name - takes data from infile
 *  string ofile_name - prints data to outfile
+*  Col[] - column of the image
 * @Returns:
 *    void
 */
     
-    void flipHorz(string ifile_name,string ofile_name){
-       
+   void flipHorz(string ifile_name,string ofile_name, int Col[]){
+      for (int i = 0; 0 <= i <= width/2; i++){
+        Col[i] = width - 1 - i; 
     }
+  }
 
 /**
 * @FunctionName: grayScale
@@ -101,9 +119,15 @@ public:
 *    void
 */
     
-    void grayScale(string ifile_name,string ofile_name){
-       
-    }
+     void grayScale(string ifile_name,string ofile_name){
+      int gray;
+      for(int i = 0; i <= 255; i++){
+        gray = (image[i]->r + image[i]->g + image[i]->b) / 3;
+        image[i]->r = gray;
+        image[i]->g = gray;
+        image[i]->b = gray;
+    }   
+  }
     ~ImagerManip(){
     }
 };
