@@ -35,7 +35,7 @@ private:
 * @Description: 
 *     Reads in the input file
 * @Params:
-*    rgb **imgArray
+*    rgb **imgArray - pointer for image rgb
 * @Returns:
 *    void
 */
@@ -53,7 +53,7 @@ private:
 * @Description: 
 *     writes new data into file
 * @Params:
-*    rgb **imgArray
+*    rgb **imgArray - pointer for image rgb
 * @Returns:
 *    void
 */
