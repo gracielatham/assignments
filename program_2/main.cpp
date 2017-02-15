@@ -79,14 +79,14 @@ public:
 * @Params:
 *   string ifile_name - takes data from infile
 *   string ofile_name - prints data to outfile
-*   Row[] - row of the image
 * @Returns:
 *    void
 */
     
-    void flipVert(string ifile_name,string ofile_name, int Row[]){
+    void flipVert(string ifile_name,string ofile_name){
+      int Row[256]; 
       for (int i = 0; 0 <= i <= height/2; i++){
-        Row[i] = height - 1 - i; 
+      Row[i] = height - 1 - i; 
     }
   }
 
@@ -97,12 +97,12 @@ public:
 * @Params:
 *  string ifile_name - takes data from infile
 *  string ofile_name - prints data to outfile
-*  Col[] - column of the image
 * @Returns:
 *    void
 */
     
-   void flipHorz(string ifile_name,string ofile_name, int Col[]){
+  void flipHorz(string ifile_name,string ofile_name){
+      int Col[256];
       for (int i = 0; 0 <= i <= width/2; i++){
         Col[i] = width - 1 - i; 
     }
@@ -135,10 +135,17 @@ public:
 int main() {
     ifstream ifile;
     ofstream ofile;
-    ifile.open("bot.txt");
-    ofile.open("bot2.txt");  
+   
+    string ifile_open("bot.txt");
+    string ofile_open("bot2.txt");
+ 
+    ImageManip image; 
     
+    image.flipVert(ifile_open, ofile_open); 
+    
+    image.flipHorz(ifile_open, ofile_open);
+    
+    image.grayScale(ifile_open, ofile_open); 
 
-  return 0;
-    
-}
+    return 0;
+ }
