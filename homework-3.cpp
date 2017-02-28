@@ -1,6 +1,6 @@
 /**
-* Homework: Homework-3
-* Author: Gracie Latham
+* Homework 3 - Fix Print Function
+* Gracie Latham
 * Description: 
 *     This program reads in images stored as rgb values in a space delimited file format.
 * Course: 1063 Data Structures
@@ -9,21 +9,23 @@
 */
 
 /**
-* @FunctionName: Print
-* @Description: 
-*     You describe your fix here
-* @Params:
+* FunctionName: Print
+* Description: 
+*     Insert an if statement to look for when the queue is full 
+* Params:
 *    NONE
-* @Returns:
+* Returns:
 *    NONE
 */
-void Print(){
-  //FIX ME!
-  int Index = Front;
+  void Print(){
 
-  while(Index != Rear){
-    cout<<Q[Index]<<" ";
-    Index = ((Index + 1) % (ArraySize));
+    int Index = Front;
+    if(Full()){
+  
+    while(Index != Rear){
+      cout<<Q[Index]<<" ";
+      Index = ((Index + 1) % (ArraySize));
+    }
+    cout<<endl;
   }
-  cout<<endl;
-}
+ }
