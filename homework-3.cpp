@@ -21,7 +21,6 @@
 
     int Index = Front;
     
-  
     while(Index != Rear){
       cout<<Q[Index]<<" ";
       Index = ((Index + 1) % (ArraySize));
