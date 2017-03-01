@@ -11,7 +11,7 @@
 /**
 * FunctionName: Print
 * Description: 
-*     Insert an if statement to look for when the queue is full 
+*     Insert an if statement to look for when Index is equal to the rear of the queue.
 * Params:
 *    NONE
 * Returns:
@@ -20,12 +20,17 @@
   void Print(){
 
     int Index = Front;
-    if(Full()){
+    
   
     while(Index != Rear){
       cout<<Q[Index]<<" ";
       Index = ((Index + 1) % (ArraySize));
     }
+    
+    if(Index = Rear){
+      Index = ArraySize;
+      cout<<Q[Index]<<" ";
+    }
+   
     cout<<endl;
-  }
  }
