@@ -2,7 +2,7 @@
 * Homework 3 - Fix Print Function
 * Gracie Latham
 * Description: 
-*     This program reads in images stored as rgb values in a space delimited file format.
+*     This program inserts values into a queue using functions
 * Course: 1063 Data Structures
 * Semester: Spring 2017
 * Date: 01 03 2017
