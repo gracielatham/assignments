@@ -132,7 +132,7 @@ int BinarySearch(int* data,int key,int size){
   int right = size-1;
   int middle = (left + right) / 2;
   
-  bool found = false;
+  bool found = true;
   
   
   while(!found){
@@ -143,15 +143,19 @@ int BinarySearch(int* data,int key,int size){
     }else{
       if(key < data[middle]){
         right = middle;
-      }else{
+      }else if(key > data[middle]){
         left = middle;
+      }else{
+         if(data[middle] != exists(data, size, key)){
+           cout<<"Does not exist"<<endl;
+        }
+       
       }
-      middle = (left + right) / 2;
+     middle = (left + right) / 2;
     }
-    
-  }
   
-  return -1;
+  }
+  return false;
 }
 
 /**
