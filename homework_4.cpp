@@ -8,7 +8,6 @@
 * Date: 10 08 2017
 */
 
-
 /**
 * @ProgramName: Binary Search
 * @Author: 1063 Team  
@@ -132,7 +131,7 @@ int BinarySearch(int* data,int key,int size){
   int right = size-1;
   int middle = (left + right) / 2;
   
-  bool found = true;
+  bool found = false;
   
   
   while(!found){
@@ -147,15 +146,16 @@ int BinarySearch(int* data,int key,int size){
         left = middle;
       }else{
          if(data[middle] != exists(data, size, key)){
-           cout<<"Does not exist"<<endl;
+           
         }
        
       }
      middle = (left + right) / 2;
+     cout<<"Does not exist"<<endl;
     }
   
   }
-  return false;
+  return -1;
 }
 
 /**
@@ -181,6 +181,7 @@ int main(){
   
   int found = BinarySearch(data,1001,size);
   cout<<"Found: "<<found<<endl;
+ 
 
   return 0;
 }
