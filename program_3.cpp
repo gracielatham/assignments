@@ -1,12 +1,13 @@
 /**
 * @ProgramName: Array Based Stack
-* @Author: CS 1063 Course Members 
+* @Author: Gracie Latham
 * @Description: 
 *     This program uses an array to implement a basic stack.
 * @Course: 1063 Data Structures
 * @Semester: Spring 2017
-* @Date: Mar 2017
+* @Date: Mar 13 2017
 */
+
 #include <iostream>
 
 using namespace std;
