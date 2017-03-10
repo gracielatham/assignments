@@ -259,6 +259,22 @@ int main(){
   ofstream ofile;
   ifile.open("exp.txt");
   ofile.open("output.txt");
+  
+  char ch = '*';
+  int val;
+  switch(ch){
+    case '+':
+    case '-':
+      val = 1;
+      break;
+    case '*':
+    case '/':
+    case '%':
+      val = 2;
+      break;
+    default:
+      val = -1;
+  }
 
  
   Convert C;
