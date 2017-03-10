@@ -259,11 +259,14 @@ is simply showing basic queue use.
 
 
 
+
 int main(){
   ifstream ifile;        
   ofstream ofile;
   ifile.open("exp.txt");
   ofile.open("output.txt");
+  
+  string infix; 
   
   char ch = '*';
   int val;
@@ -282,20 +285,38 @@ int main(){
   }
 
   
-  Convert C;
+  cout<<"Expression";
+  cin>>infix;
   
-  C.tempFunc();
+  Convert C; 
   
-  Queue.Push('(');
-  Queue.Push(')')->Rear;
-  while(Stack != empty()){
+  Stack s1(infix.length());
+  for(int i=0;i<infix.length();i++){
+    s1.push(infix[i]);
+  }
+  
+  Queue q1(infix.length());
+  for(int i=0;i<infix.length();i++){
+    q1.Push(infix[i]);
+  }
+  
+  q1.Push('(');
+  q1.Push(')')->Rear;
+  while(s1 != empty()){
   if(ch = val){
-    Queue.Push(ch)->Stack;
+    q1.Push(ch)->s1;
   }else(ch != val){
-    Queue.Pop();
-    Queue.Pop(); 
-    Queue.Push(ch)->Stack;
-  } 
+    q1.Pop();
+    q1.Pop(); 
+    q1.Push(ch)->s1;
+  }
+  
+  if(ch = '('){
+    while(ch != ')'){
+      q1.Pop();
+    }
+    delete ')';
+  }
   }
 
 
