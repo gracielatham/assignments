@@ -235,8 +235,9 @@ public:
     char temp;
     int i;
      string infix;
+     
      cin>>infix; 
-
+     
     for(int i=0;i<infix.length();i++){
       S->push(infix[i]);
     }
@@ -280,9 +281,23 @@ int main(){
       val = -1;
   }
 
+  
   Convert C;
   
   C.tempFunc();
+  
+  Queue.Push('(');
+  Queue.Push(')')->Rear;
+  while(Stack != empty()){
+  if(ch = val){
+    Queue.Push(ch)->Stack;
+  }else(ch != val){
+    Queue.Pop();
+    Queue.Pop(); 
+    Queue.Push(ch)->Stack;
+  } 
+  }
+
 
 
 }
