@@ -234,7 +234,8 @@ public:
   void tempFunc(){
     char temp;
     int i;
-    string infix; 
+     string infix;
+     cin>>infix; 
 
     for(int i=0;i<infix.length();i++){
       S->push(infix[i]);
@@ -254,6 +255,9 @@ in a queue, then pops each item off the queue and prints it out.
 This is not meant to influence your solution to the program, it 
 is simply showing basic queue use.
 */
+
+
+
 int main(){
   ifstream ifile;        
   ofstream ofile;
@@ -276,7 +280,6 @@ int main(){
       val = -1;
   }
 
- 
   Convert C;
   
   C.tempFunc();
