@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream> 
 #include <string>
 
 using namespace std;
@@ -233,7 +234,7 @@ public:
   void tempFunc(){
     char temp;
     int i;
-    string infix = "(3+4)*9-(3+4)*8";
+    string infix; 
 
     for(int i=0;i<infix.length();i++){
       S->push(infix[i]);
@@ -254,6 +255,15 @@ This is not meant to influence your solution to the program, it
 is simply showing basic queue use.
 */
 int main(){
+  ifstream ifile;        
+  ofstream ofile;
+  ifile.open("exp.txt");
+  ofile.open("output.txt");
+
+ 
   Convert C;
+  
   C.tempFunc();
 
+
+}
