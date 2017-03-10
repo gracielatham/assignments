@@ -267,9 +267,11 @@ int main(){
   ofile.open("output.txt");
   
   string infix; 
+  string postfix; 
   
   char ch = '*';
   int val;
+  int oper;
   switch(ch){
     case '+':
     case '-':
@@ -300,25 +302,40 @@ int main(){
     q1.Push(infix[i]);
   }
   
-  q1.Push('(');
-  q1.Push(')')->Rear;
+  s1.push('(');
+  s1.push(')');
+ 
   while(s1 != empty()){
   if(ch = val){
-    q1.Push(ch)->s1;
-  }else(ch != val){
-    q1.Pop();
-    q1.Pop(); 
-    q1.Push(ch)->s1;
+    s1.push(ch);
+    ch = val; 
+  }else if(ch = '('){
+    s1.push(ch);
+  }else if(ch != val){
+    while(oper + val >= oper){
+    s1.pop() = postfix;
+    s1.push(ch);
   }
-  
-  if(ch = '('){
+  }else if(ch = '('){
     while(ch != ')'){
-      q1.Pop();
+      s1.pop();
     }
     delete ')';
   }
-  }
+ }
 
+  while(q1 != Empty()){
+    if(ch = val){
+      q1.Push(ch);
+    }else{
+      q1.Pop();
+      q1.Pop();
+      q1.Push(ch);
+    }
+    if(q1 = Empty()){
+      val = postfix;
+    }
+  }
 
 
 }
