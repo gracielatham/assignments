@@ -250,25 +250,13 @@ public:
   }
 };
 
-/*
-This main reads an infix expression from stdin, puts the tokens
-in a queue, then pops each item off the queue and prints it out.
-This is not meant to influence your solution to the program, it 
-is simply showing basic queue use.
-*/
-
-
-
-
-int main(){
-  ifstream ifile;        
-  ofstream ofile;
-  ifile.open("exp.txt");
-  ofile.open("output.txt");
-  
-  string infix; 
-  string postfix; 
-  
+class Calculator{
+private:
+  Queue *Q;
+  Stack *S;
+  int Size;
+  string infix;
+  string postfix;
   char ch = '*';
   int val;
   int oper;
@@ -282,60 +270,91 @@ int main(){
     case '%':
       val = 2;
       break;
+    case '(':
+    case ')':
+      val = 3;
+      break; 
     default:
       val = -1;
   }
-
-  
-  cout<<"Expression";
-  cin>>infix;
-  
-  Convert C; 
-  
-  Stack s1(infix.length());
-  for(int i=0;i<infix.length();i++){
-    s1.push(infix[i]);
-  }
-  
-  Queue q1(infix.length());
-  for(int i=0;i<infix.length();i++){
-    q1.Push(infix[i]);
-  }
-  
-  s1.push('(');
-  s1.push(')');
- 
-  while(s1 != empty()){
-  if(ch = val){
-    s1.push(ch);
+  void InfixToPostfix(){
+    if(infix.length() == 0){
+      cout<<"Error: infix not set.";
+      return;
+    }
+    for(int i=0;i<infix.length();i++){
+      S->push('(');
+      S->push(')');
+      //S->push(infix[i]);
+    }
+    while(!S->empty()){
+    if(ch = val){
+    S->push(ch);
     ch = val; 
   }else if(ch = '('){
-    s1.push(ch);
+    S->push(ch);
   }else if(ch != val){
     while(oper + val >= oper){
-    s1.pop() = postfix;
-    s1.push(ch);
+    S->pop() = postfix;
+    S->push(ch);
   }
   }else if(ch = '('){
     while(ch != ')'){
-      s1.pop();
+      S->pop();
     }
     delete ')';
   }
  }
-
-  while(q1 != Empty()){
-    if(ch = val){
-      q1.Push(ch);
-    }else{
-      q1.Pop();
-      q1.Pop();
-      q1.Push(ch);
+     // postfix += S->pop();
     }
-    if(q1 = Empty()){
+    cout<<postfix<<endl;
+  }
+  int EvaluatePostfix(){
+    //for(int i=0;i<postfix.length();i++){
+    while(Q != Empty()){
+    if(ch = val){
+      Q->Push(ch);
+    }else{
+      Q->Pop();
+      Q->Pop();
+      Q->Push(ch);
+    }
+    if(Q = Empty()){
       val = postfix;
     }
   }
+    }
+    return 99;
+  }
+public:
+  Calculator(){
+    // Size = size;
+    // Q = new Queue(Size);
+    // S = new Stack(Size);
+    infix = "";
+    postfix = "";
+  }
+  int ProcessExpression(string exp){
+    int answer = 0;
+    Q = new Queue(exp.length()+2);
+    S = new Stack(exp.length()+2);
+    infix = exp;
+    cout<<infix<<endl;
+    InfixToPostfix();
+    answer = EvaluatePostfix();
+    delete Q;
+    delete S;
+    return answer;
+  }
+};
 
 
+
+int main(){
+
+  cout<<"Expression";
+
+  Calculator C;
+  cout<<C.ProcessExpression("(3+4)/2")<<endl;
+  //cout<<char(49)<<endl; 
 }
