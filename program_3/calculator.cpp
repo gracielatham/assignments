@@ -245,7 +245,6 @@ public:
     while(!S->empty()){
       temp = S->pop();
       cout<<temp;
-      //we could simply do cout<<s1.pop(); as well. 
     }
   }
 };
@@ -285,9 +284,9 @@ private:
     for(int i=0;i<infix.length();i++){
       S->push('(');
       S->push(')');
-      //S->push(infix[i]);
+      S->push(infix[i]);
     }
-    while(!S->empty()){
+  while(!S->empty()){
     if(ch = val){
     S->push(ch);
     ch = val; 
@@ -305,12 +304,17 @@ private:
     delete ')';
   }
  }
-     // postfix += S->pop();
+      postfix += S->pop();
     }
     cout<<postfix<<endl;
-  }
+    
   int EvaluatePostfix(){
-    //for(int i=0;i<postfix.length();i++){
+    Queue *Q;
+    Stack *S;
+    string postfix; 
+    int val;
+    char ch;
+    for(int i=0;i<postfix.length();i++){
     while(Q != Empty()){
     if(ch = val){
       Q->Push(ch);
@@ -328,9 +332,8 @@ private:
   }
 public:
   Calculator(){
-    // Size = size;
-    // Q = new Queue(Size);
-    // S = new Stack(Size);
+    Queue *Q;
+    Stack *S;
     infix = "";
     postfix = "";
   }
@@ -346,7 +349,10 @@ public:
     delete S;
     return answer;
   }
+
 };
+
+
 
 
 
@@ -355,6 +361,6 @@ int main(){
   cout<<"Expression";
 
   Calculator C;
-  cout<<C.ProcessExpression("(3+4)/2")<<endl;
-  //cout<<char(49)<<endl; 
+  cin<<C.ProcessExpression(string)<<endl;
+  cout<<char(49)<<endl; 
 }
