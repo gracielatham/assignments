@@ -259,7 +259,8 @@ private:
   char ch = '*';
   int val;
   int oper;
-  switch(ch){
+  void InfixToPostfix(){
+    switch(ch){
     case '+':
     case '-':
       val = 1;
@@ -276,7 +277,6 @@ private:
     default:
       val = -1;
   }
-  void InfixToPostfix(){
     if(infix.length() == 0){
       cout<<"Error: infix not set.";
       return;
@@ -294,19 +294,19 @@ private:
     S->push(ch);
   }else if(ch != val){
     while(oper + val >= oper){
-    S->pop() = postfix;
+    S->pop();
     S->push(ch);
   }
   }else if(ch = '('){
     while(ch != ')'){
       S->pop();
     }
-    delete ')';
+    //delete ')';
   }
  }
-      postfix += S->pop();
+      //postfix += S->pop();
     }
-    cout<<postfix<<endl;
+    //cout<<postfix<<endl;
     
   int EvaluatePostfix(){
     Queue *Q;
@@ -315,7 +315,7 @@ private:
     int val;
     char ch;
     for(int i=0;i<postfix.length();i++){
-    while(Q != Empty()){
+    while(!Q->Empty()){
     if(ch = val){
       Q->Push(ch);
     }else{
@@ -323,9 +323,9 @@ private:
       Q->Pop();
       Q->Push(ch);
     }
-    if(Q = Empty()){
-      val = postfix;
-    }
+   // if(Q = Empty()){
+   //   val = postfix;
+   // }
   }
     }
     return 99;
@@ -352,15 +352,11 @@ public:
 
 };
 
-
-
-
-
 int main(){
 
   cout<<"Expression";
 
   Calculator C;
-  cin<<C.ProcessExpression(string)<<endl;
+  cout<<C.ProcessExpression("(5+6)-7")<<endl;
   cout<<char(49)<<endl; 
 }
