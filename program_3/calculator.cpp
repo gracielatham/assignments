@@ -166,8 +166,6 @@ class Stack{
   void push(char c){
     if(!full()){
       S[++top] = c;
-    //}else{
-    //  cout<<"Stack Overflow!"<<endl;
     }
   }
   
