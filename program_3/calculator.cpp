@@ -368,8 +368,9 @@ int main(){
   ofstream outfile;
   infile.open("exp.txt");
   outfile.open("output.txt");
-  int infix;
-  int postfix; 
+  
+  string infix;
+  string postfix; 
   int i;
 
   cout<<"Expression"<<endl;
