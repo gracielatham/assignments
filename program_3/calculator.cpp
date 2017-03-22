@@ -301,7 +301,7 @@ private:
   }else if(ch = '('){
     S->push(ch);
   }else if(ch != val){
-    while(oper + val >= oper){
+    while(val >= oper){
     S->pop();
     S->push(ch);
   }
@@ -314,7 +314,6 @@ private:
  }
       postfix += S->pop();
     }
-    //cout<<postfix<<endl;
     
   int EvaluatePostfix(){
     Queue *Q;
