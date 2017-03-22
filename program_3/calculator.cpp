@@ -309,7 +309,6 @@ private:
     while(ch != ')'){
       S->pop();
     }
-    //delete ')';
   }
  }
       postfix += S->pop();
@@ -363,11 +362,27 @@ public:
 
 
 
-int main(){
 
-  cout<<"Expression";
+int main(){
+  ifstream infile;
+  ofstream outfile;
+  infile.open("exp.txt");
+  outfile.open("output.txt");
+  int infix;
+  int postfix; 
+  int i;
+
+  cout<<"Expression"<<endl;
 
   Calculator C;
-  cout<<C.ProcessExpression("(5+6)-7")<<endl;
-  cout<<char(49)<<endl; 
+  
+  while(i <= 8){
+  infile>>infix; 
+  outfile<<infix<<"="<<postfix<<endl; 
+  i++;
+ }
+  
+  infile.close();
+  outfile.close(); 
 }
+
