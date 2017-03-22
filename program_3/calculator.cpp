@@ -1,3 +1,13 @@
+/**
+* @ProgramName: Program-3
+* @Author: Gracie Latham
+* @Description: 
+*     This Program implements a simple calculator
+* @Course: 1063 Data Structures
+* @Semester: Spring 2017
+* @Date: 3/20/2017
+*/
+
 #include <iostream>
 #include <fstream> 
 #include <string>
@@ -156,8 +166,8 @@ class Stack{
   void push(char c){
     if(!full()){
       S[++top] = c;
-    }else{
-      cout<<"Stack Overflow!"<<endl;
+    //}else{
+    //  cout<<"Stack Overflow!"<<endl;
     }
   }
   
@@ -234,9 +244,7 @@ public:
   void tempFunc(){
     char temp;
     int i;
-     string infix;
-     
-     cin>>infix; 
+    string infix;
      
     for(int i=0;i<infix.length();i++){
       S->push(infix[i]);
@@ -304,7 +312,7 @@ private:
     //delete ')';
   }
  }
-      //postfix += S->pop();
+      postfix += S->pop();
     }
     //cout<<postfix<<endl;
     
@@ -323,9 +331,9 @@ private:
       Q->Pop();
       Q->Push(ch);
     }
-   // if(Q = Empty()){
-   //   val = postfix;
-   // }
+    if(Q->Empty()){
+      cout<<postfix<<endl;
+    }
   }
     }
     return 99;
@@ -351,6 +359,10 @@ public:
   }
 
 };
+
+
+
+
 
 int main(){
 
