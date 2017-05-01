@@ -2,8 +2,8 @@
 * Program-4: Game of Life
 * Gracie Latham 
 * Description:
-*     This program modifies the game of life to create a glider gun and cause the moving spaces to
-pass through the bottem back to the top
+*     This program modifies the game of life to create a glider gun 
+and cause the moving spaces to pass through the bottem back to the top
 * Course: 1063 Data Structures
 * Semester: Spring 2017
 * Date:05 01 2017
